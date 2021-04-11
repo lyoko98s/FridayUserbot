@@ -44,11 +44,13 @@ async def num_blacklist_triggers_chat(chat_id):
 
 
 async def is_blacklist_in_db(chat_id, trigger):
-    m = await blacklist.find_one({"chat_id": chat_id, "trigger": { "$regex": "(triger)" }})
-    if m:
+    r = [u async for u in blacklist.find({"chat_id": chat_id})]
+    for x in r:
+    if trigger.find("r[x]") >= 0:
         return True
+        break
     else:
-        return False
+        continue
 
 
 async def blacklists_del(chat_id):
