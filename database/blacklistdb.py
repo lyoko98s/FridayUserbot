@@ -7,6 +7,8 @@
 # All rights reserved.
 
 from database import db_x
+import aiohttp
+import asyncio
 
 blacklist = db_x["BLACKLIST"]
 
