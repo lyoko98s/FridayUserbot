@@ -43,15 +43,31 @@ async def num_blacklist_triggers_chat(chat_id):
         return False
 
 
+#async def is_blacklist_in_db(chat_id, trigger):
+#    r = blacklist.distinct('trigger')
+#    r = [u async for u in blacklist.find({"chat_id": chat_id})]
+#    async for x in r:
+#        if trigger.find("r[x]") >= 0:
+#            return True
+#            break
+#        else:
+#            continue
+            
 async def is_blacklist_in_db(chat_id, trigger):
     r = blacklist.distinct('trigger')
-#    r = [u async for u in blacklist.find({"chat_id": chat_id})]
-    async for x in r:
+    await asyncio .sleep(0) # this is needed in order to made it coroutine function
+    async for x in Aiter (r):
         if trigger.find("r[x]") >= 0:
             return True
             break
         else:
             continue
+                
+                
+loop = asyncio.get_event_loop()
+loop.run_until_complete(is_blacklist_in_db(chat_id, trigger))
+
+
 
 
 async def blacklists_del(chat_id):
