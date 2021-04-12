@@ -54,7 +54,7 @@ async def num_blacklist_triggers_chat(chat_id):
 #        else:
 #            continue
             
-async def is_blacklist_in_db(chat_id, trigger):
+async def is_blacklist_in_db(trigger):
     r = blacklist.distinct('trigger')
     await asyncio .sleep(0) # this is needed in order to made it coroutine function
     async for x in Aiter (r):
@@ -66,7 +66,7 @@ async def is_blacklist_in_db(chat_id, trigger):
                 
                 
 loop = asyncio.get_event_loop()
-loop.run_until_complete(is_blacklist_in_db(chat_id, trigger))
+loop.run_until_complete(is_blacklist_in_db(trigger))
 
 
 
