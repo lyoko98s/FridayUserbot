@@ -63,11 +63,6 @@ async def is_blacklist_in_db(trigger):
             break
         else:
             continue
-                
-                
-loop = asyncio.get_event_loop()
-loop.run_until_complete(is_blacklist_in_db(trigger))
-
 
 
 
