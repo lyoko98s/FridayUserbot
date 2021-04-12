@@ -102,7 +102,7 @@ async def activeblack(client, message):
     owoo = owo.lower()
     tges = owoo.split(" ")
     for owo in tges:
-        if await is_blacklist_in_db(int(message.chat.id), owo):
+        if await is_blacklist_in_db(owo):
             try:
                 await message.delete()
             except Exception as e:
